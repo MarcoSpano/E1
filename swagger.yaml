@@ -16,50 +16,17 @@ produces:
   
 paths:
   '/addAssignment':
-    x-summary: add a new assignment
-    get:
-      description: 'Ottieni informazioni di tutti gli astronauti'
-      summary: 'Show astronauts in database'
-      parameters: 
-        - name: lastName
-          in: query
-          description: Lastname of the user you want to search. Not required.
-          required: false
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: ''
-          schema:
-            type: string
-          examples:
-            application/json: |-
-              [
-                  {
-                      "id": "rhw57f8b2if72bnf7bnbdu",
-                      "firstName": "Mario",
-                      "lastName": "Rossi"
-                      "isInSpace": "true"
-                  },
-                  {
-                      "id": "egrrr3rhuegtge",
-                      "firstName": "Luigi",
-                      "lastName": "Verdi"
-                      "isInSpace": "false"
-                  }
-              ]
-    
+    x-summary: Add a new assignment
     post:
-      description: 'Aggiungi astronauta nel database.'
-      summary: 'Add user in database'
+      description: 'Aggiungi assignment nel database.'
+      summary: 'Add assignment in database'
       parameters: 
-        - name: User
+        - name: Assignment
           in: body
-          description: User to add in database
+          description: Assignment to add in database
           required: true
           "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Assignment"
           }
       produces:
         - application/json
@@ -72,106 +39,27 @@ paths:
             application/json: |-
               [
                   {
-                      "id": "rhw57f8b2if72bnf7bnbdu",
-                      "firstName": "Mario",
-                      "lastName": "Rossi"
-                      "isInSpace": "true"
+                      "taskID": "rhw57f8b2if72bnf7bnbdu",
+                      "assignmentID": "Mario",
+                      "workerID": "Rossi"
+                      "assignmentResult": {"vero": "true","ciao: 3"}
                   }
               ]
-    
-        
-  '/astronauts/{id}':
-    x-summary: Update information of astronauts
-    put:
-      description: 'Update data of a user'
-      summary: Update information of user
-      operationId: ScheduleBySedeAndAulaGet
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-          description: ID of the user
-        - name: information
-          in: body
-          required: true
-          description: "Information to update"
-          "schema": {
-              "$ref": "#/definitions/User"
-          }
-      responses:
-        '200':
-          description: ''
-          schema:
-            type: object
-          examples: 
-            application/json: |-
-              [
-                  {
-                      "id": "rhw57f8b2if72bnf7bnbdu",
-                      "firstName": "Mario",
-                      "lastName": "Rossi"
-                      "isInSpace": true
-                  }
-              ]
-        '404':
-          description: ''
-          schema:
-            type: object
-          examples: 
-            application/json: |-
-              Not Found
-    get:
-      description: 'Obtain information about an astronaut using IDs.'
-      summary: Obtain specific astronaut using ID
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-          description: username of the user
-      responses:
-        '200':
-          description: ''
-          schema:
-            type: object
-          examples: 
-            application/json: |-
-              [
-                  {
-                      "id": "rhw57f8b2if72bnf7bnbdu",
-                      "firstName": "Mario",
-                      "lastName": "Rossi"
-                      "isInSpace": "true"
-                  }
-              ]
-        '404':
-          description: ''
-          schema:
-            type: object
-          examples: 
-            application/json: |-
-              Not Found
-      
-          
+  
 "definitions": {
-    "User": {
+    "Assignment": {
       "type": "object",
       "properties": {
-        "firstName": {
+        "taskID": {
           "type": "string",
-          "description": "firstName of astronaut"
-        },"lastName": {
+          "description": "taskID of assignment"
+        },"assignmentID": {
           "type": "string",
-          "description": "lastName of astronaut"
+          "description": "assignmentID of assignment"
         },
-        "isInSpace": {
-          "type": boolean,
-          "description": "True if astronaut is in space, false otherwise"
+        "workerID": {
+          "type": "string",
+          "description": "workerID of assignment"
         }
     }
   }
