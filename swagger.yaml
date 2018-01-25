@@ -42,9 +42,39 @@ paths:
                       "taskID": "rhw57f8b2if72bnf7bnbdu",
                       "assignmentID": "Mario",
                       "workerID": "Rossi"
-                      "assignmentResult": {"vero": "true","ciao": 3}
+                      "assignmentResult": {\"vero\": "true",\"ciao\": 3}
                   }
               ]
+  
+  '/getAssignment':
+    x-summary: Add a new assignment
+    get:
+      description: 'Obtain information about an assignments'
+      summary: 'Obtain a list of assignments'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+          examples: 
+            application/json: |-
+              [
+                  {
+                      "taskID": "gsdgfds",
+                      "assignmentID": "nhfjytmnjr",
+                      "workerID": "jgm,kytgmfnsf"
+                      "assignmentResult": {\"vero\": "true",\"ciao\": 3}
+                  }
+              ]
+        '404':
+          description: ''
+          schema:
+            type: object
+          examples: 
+            application/json: |-
+              Not Found
   
 "definitions": {
     "Assignment": {
