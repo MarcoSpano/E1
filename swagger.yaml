@@ -45,6 +45,19 @@ paths:
                       "assignmentResult": {\"vero\": "true",\"ciao\": 3}
                   }
               ]
+        '400':
+          description: ''
+          schema:
+            type: string
+          examples:
+            application/json: |-
+              [
+                  {
+                      "taskID": "rhw57f8b2if72bnf7bnbdu",
+                      "assignmentID": "Mario",
+                      "assignmentResult": {\"vero\": "true",\"ciao\": 3}
+                  }
+              ]
   
   '/getAssignment':
     x-summary: Add a new assignment
