@@ -21,11 +21,11 @@ app.post('/addAssignment', (req,res) => {
 	taskid = req.body.taskID;
 	assignemntid = req.body.assignmentID;
 	workerid = req.body.workerID;
-	assignmentres = req.body.assignemntResult;
+	assignmentres = req.body.assignmentResult;
 
-	assignments.push({"taskID": taskid,"assignmentID": assignemntid, "workerID": workerid, "assignemntResult": assignmentres});
+	assignments.push({"taskID": taskid,"assignmentID": assignemntid, "workerID": workerid, "assignmentResult": assignmentres});
 	//res.sendStatus('SUCCESS');
-	res.json({"taskID": taskid,"assignmentID": assignemntid, "workerID": workerid, "assignemntResult": assignmentres});
+	res.json({"taskID": taskid,"assignmentID": assignemntid, "workerID": workerid, "assignmentResult": assignmentres});
 });
 
 /*app.get('/findAstronaut/:id', (req,res) => {
