@@ -60,6 +60,10 @@ paths:
         "workerID": {
           "type": "string",
           "description": "workerID of assignment"
+        },
+        "assignmentResult ": {
+          "type": "object",
+          "description": "assignmentResult of assignment"
         }
     }
   }
