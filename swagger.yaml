@@ -42,7 +42,7 @@ paths:
                       "taskID": "rhw57f8b2if72bnf7bnbdu",
                       "assignmentID": "Mario",
                       "workerID": "Rossi"
-                      "assignmentResult": {"vero": "true","ciao: 3"}
+                      "assignmentResult": {"vero": "true","ciao": 3}
                   }
               ]
   
